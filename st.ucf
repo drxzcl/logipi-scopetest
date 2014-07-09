@@ -1,0 +1,38 @@
+##############################################################################
+# Timing Constraints #
+##############################################################################
+
+##### Grouping Constraints #####
+NET OSC_FPGA TNM_NET = clk50_grp;
+#NET DRAM_CLK TNM_NET = clk100_grp;
+#NET SYS_SPI_SCK TNM_NET = clk32_grp;
+
+##### Clock Period Constraints #####
+TIMESPEC TS_PER_CLK50 = PERIOD "clk50_grp" 20.0 ns ;
+#TIMESPEC TS_PER_CLK100 = PERIOD "clk100_grp" 10.0 ns;
+#TIMESPEC TS_PER_CLK32 = PERIOD "clk32_grp" 20.0 ns;
+#PIN "sys_clocks_gen/clkout2_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+#NET "SYS_SPI_SCK" CLOCK_DEDICATED_ROUTE = FALSE;
+
+##############################################################################
+# Pin LOC Constraints #
+##############################################################################
+NET "OSC_FPGA"      	LOC = "P85" 		| IOSTANDARD = LVTTL;
+
+#Peripherals#############################################################
+NET "LED<0>"       		LOC = "P105" 		| IOSTANDARD = LVTTL;		#SHARED WITH ARD_D6
+NET "LED<1>"       		LOC = "P104" 		| IOSTANDARD = LVTTL;		#SHARED WITH ARD_D7
+#NET "PB<0>"        		LOC = "P102" 		| IOSTANDARD = LVTTL;
+#NET "PB<1>"        		LOC = "P101" 		| IOSTANDARD = LVTTL;
+#NET "SW<0>"        		LOC = "P99" 		| IOSTANDARD = LVTTL;
+#NET "SW<1>"        		LOC = "P100" 		| IOSTANDARD = LVTTL;
+
+##PMOD4#############################################################################
+NET "PMOD4<0>" 			LOC = "P112" 		| IOSTANDARD = LVTTL;
+NET "PMOD4<1>" 			LOC = "P111" 		| IOSTANDARD = LVTTL;
+NET "PMOD4<2>" 			LOC = "P132" 		| IOSTANDARD = LVTTL;
+NET "PMOD4<3>" 			LOC = "P131" 		| IOSTANDARD = LVTTL;
+NET "PMOD4<4>" 			LOC = "P115" 		| IOSTANDARD = LVTTL;
+NET "PMOD4<5>" 			LOC = "P114" 		| IOSTANDARD = LVTTL;
+NET "PMOD4<6>" 			LOC = "P134" 		| IOSTANDARD = LVTTL;
+NET "PMOD4<7>" 			LOC = "P133" 		| IOSTANDARD = LVTTL;
